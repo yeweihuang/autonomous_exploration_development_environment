@@ -56,6 +56,10 @@ add_executable(vehicleSimulator src/vehicleSimulator.cpp)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(vehicleSimulator ${catkin_LIBRARIES} ${OpenCV_LIBRARIES} ${PCL_LIBRARIES})
 
+catkin_install_python(PROGRAMS scripts/waypoint_subscriber.py
+        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+        )
+
 install(TARGETS vehicleSimulator
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}

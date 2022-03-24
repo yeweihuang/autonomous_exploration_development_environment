@@ -352,6 +352,9 @@ int main(int argc, char** argv)
   gazebo_msgs::ModelState robotState;
   robotState.model_name = "robot";
 
+  gazebo_msgs::ModelState imuState;
+  imuState.model_name = "imu";
+
   ros::Publisher pubScan = nh.advertise<sensor_msgs::PointCloud2>("/registered_scan", 2);
   pubScanPointer = &pubScan;
 
@@ -439,6 +442,12 @@ int main(int argc, char** argv)
     lidarState.pose.position.y = vehicleY;
     lidarState.pose.position.z = vehicleZ;
     pubModelState.publish(lidarState);
+
+    imuState.pose.orientation = geoQuat;
+    imuState.pose.position.x = vehicleX;
+    imuState.pose.position.y = vehicleY;
+    imuState.pose.position.z = vehicleZ;
+    pubModelState.publish(imuState);
 
     status = ros::ok();
     rate.sleep();

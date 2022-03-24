@@ -43,4 +43,6 @@
 
   <node launch-prefix="nice" pkg="rviz" type="rviz" name="rvizGA" args="-d $(find vehicle_simulator)/rviz/vehicle_simulator.rviz" respawn="true"/>
 
+<!--  <node pkg="vehicle_simulator" type="waypoint_subscriber.py" name="waypoint_subscriber" output="screen" respawn="true"/>-->
+
 </launch>
